@@ -59,7 +59,6 @@ public class Knight extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        this.currentSquare.setOccupied(false);
         this.setCurrentSquare(square);
         square.setCurrentPiece(this);
         square.setOccupied(true);

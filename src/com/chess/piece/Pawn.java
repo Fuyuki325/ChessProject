@@ -84,7 +84,6 @@ public class Pawn extends AbstractPiece implements Movable {
         if (isFirstMove) {
             isFirstMove = false;
         }
-        this.currentSquare.setOccupied(false);
         this.setCurrentSquare(square);
         square.setCurrentPiece(this);
         square.setOccupied(true);

@@ -40,8 +40,8 @@ public class Queen extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        Square current = this.getCurrentSquare();
         this.setCurrentSquare(square);
-        current.reset();
+        square.setCurrentPiece(this);
+        square.setOccupied(true);
     }
 }

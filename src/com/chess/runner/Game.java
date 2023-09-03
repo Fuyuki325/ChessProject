@@ -1,5 +1,6 @@
 package com.chess.runner;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.chess.board.Board;
@@ -28,8 +29,13 @@ public class Game {
             Square fromSq = board.getLocationSquareMap().get(new Location(fromFile, fromRank));
             Square toSq = board.getLocationSquareMap().get(new Location(toFile, toRank));
 
-            fromSq.getCurrentPiece().makeMove(toSq);
-            fromSq.reset();
+            List<Location> moveCandidates = fromSq.getCurrentPiece().getValidMoves(board);
+            if (moveCandidates.contains(toSq.getLocation())) {
+                fromSq.getCurrentPiece().makeMove(toSq);
+                fromSq.reset();
+            } else {
+                continue;
+            }
 
             board.printBoard();
 

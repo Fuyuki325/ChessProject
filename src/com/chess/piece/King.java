@@ -45,6 +45,8 @@ public class King extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        System.out.println(this.getName() + "-> makeMove()");
+        this.setCurrentSquare(square);
+        square.setCurrentPiece(this);
+        square.setOccupied(true);
     }
 }
